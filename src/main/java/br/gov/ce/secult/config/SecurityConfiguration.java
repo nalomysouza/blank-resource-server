@@ -40,6 +40,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.addFilterAfter(oAuth2ClientContextFilter(), AbstractPreAuthenticatedProcessingFilter.class)
 				.addFilterAfter(openIdConnectAuthenticationFilter(), OAuth2ClientContextFilter.class)
 				.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint()).and().authorizeRequests()
-				.antMatchers(GET, "/").permitAll().antMatchers(GET, "/api/**").authenticated();
+				.antMatchers(GET, "/").permitAll().antMatchers("/**").authenticated();
 	}
 }

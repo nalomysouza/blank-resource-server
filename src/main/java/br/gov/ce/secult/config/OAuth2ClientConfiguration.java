@@ -5,6 +5,8 @@ import static org.springframework.security.oauth2.common.AuthenticationScheme.fo
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +21,9 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 
 @Configuration
 @EnableOAuth2Client
-public class OAuth2Client {
+public class OAuth2ClientConfiguration {
+	private static final Logger log = LoggerFactory.getLogger(OAuth2ClientConfiguration.class);
+
 	@Value("${security.oauth2.client.clientId}")
 	private String clientId;
 
@@ -42,6 +46,8 @@ public class OAuth2Client {
 		details.setUserAuthorizationUri(userAuthorizationUri);
 		details.setAccessTokenUri(accessTokenUri);
 		details.setScope(asList("openid", "email", "public_profile"));
+
+		log.info("AuthorizationCodeResourceDetails", details);
 		return details;
 	}
 

@@ -9,14 +9,14 @@ import org.springframework.context.annotation.ScopedProxyMode;
 
 @ComponentScan(scopedProxy = ScopedProxyMode.INTERFACES)
 @SpringBootApplication
-public class BlankResourceServerApplication extends SpringBootServletInitializer {
+public class Application extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BlankResourceServerApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(BlankResourceServerApplication.class);
+		return application.sources(Application.class);
 	}
 }
