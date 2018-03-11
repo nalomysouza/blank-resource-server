@@ -13,8 +13,8 @@ security:
     client:
       clientId: 3_2olch6wm3v6sso4ssswcsk0wocgwk0ckscowo0k4c88w0scwc8
       clientSecret: 3u3fumzdldycos8swg48so40skg0kkg0co04www04w04kgcgc0
-      accessTokenUri: http://localhost/oauth/v2/token
-      userAuthorizationUri: http://localhost/oauth/v2/auth
+      accessTokenUri: http://local.logincultura/oauth/v2/token
+      userAuthorizationUri: http://local.logincultura/oauth/v2/auth
       clientAuthenticationScheme: form
     resource:
-      userInfoUri: http://localhost/api/v1/person
+      userInfoUri: http://local.logincultura/api/v1/person
