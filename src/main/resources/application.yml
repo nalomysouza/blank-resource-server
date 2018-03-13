@@ -15,6 +15,6 @@ security:
       clientSecret: 3u3fumzdldycos8swg48so40skg0kkg0co04www04w04kgcgc0
       accessTokenUri: http://local.logincultura/oauth/v2/token
       userAuthorizationUri: http://local.logincultura/oauth/v2/auth
-      clientAuthenticationScheme: form
+      authenticationScheme: query
     resource:
       userInfoUri: http://local.logincultura/api/v1/person

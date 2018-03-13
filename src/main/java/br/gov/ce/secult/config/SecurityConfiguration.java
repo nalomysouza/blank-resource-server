@@ -39,7 +39,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.addFilterAfter(oAuth2ClientContextFilter(), AbstractPreAuthenticatedProcessingFilter.class)
 				.addFilterAfter(openIdConnectAuthenticationFilter(), OAuth2ClientContextFilter.class)
-				.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint()).and().authorizeRequests()
-				.antMatchers(GET, "/").permitAll().antMatchers("/**").authenticated().and().csrf().disable();
+				.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint()).and().antMatcher("/**").csrf()
+				.disable().authorizeRequests().antMatchers("/", "/login**", "/webjars/**").permitAll().anyRequest()
+				.authenticated();
 	}
 }

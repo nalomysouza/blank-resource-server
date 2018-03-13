@@ -34,8 +34,8 @@ public class OpenIDConnectAuthenticationFilter extends AbstractAuthenticationPro
 	}
 
 	@Override
-	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
-			throws AuthenticationException, IOException, ServletException {
+	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
+		
 		final ResponseEntity<UserInfo> userInfoResponseEntity = restTemplate.getForEntity(userInfoUri, UserInfo.class);
 		return new PreAuthenticatedAuthenticationToken(userInfoResponseEntity.getBody(), empty(), NO_AUTHORITIES);
 	}
